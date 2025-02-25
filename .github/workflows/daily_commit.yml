@@ -1,0 +1,22 @@
+name: Daily Commit
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Make a Dummy Change
+      run: |
+        date >> log.txt  # Appends the current date to log.txt
+        git config --global user.name "your-username"
+        git config --global user.email "your-email@example.com"
+        git add log.txt
+        git commit -m "Automated commit"
+        git push https://${{ secrets.GH_PAT }}@github.com/your-username/your-repo.git main
