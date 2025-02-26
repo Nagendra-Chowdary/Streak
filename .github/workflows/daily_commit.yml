@@ -2,7 +2,7 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '30 19 * * *'  # Runs daily at midnight UTC
 
 jobs:
   commit:
@@ -15,8 +15,8 @@ jobs:
     - name: Make a Dummy Change
       run: |
         date >> log.txt  # Appends the current date to log.txt
-        git config --global user.name "your-username"
-        git config --global user.email "your-email@example.com"
+        git config --global user.name "Nagendra-Chowdary"
+        git config --global user.email "chowdary006@gmail.com"
         git add log.txt
         git commit -m "Automated commit"
-        git push https://${{ secrets.GH_PAT }}@github.com/your-username/your-repo.git main
+        git push https://${{ secrets.GH_PAT }}@github.com/Nagendra-Chowdary/Streak.git main
