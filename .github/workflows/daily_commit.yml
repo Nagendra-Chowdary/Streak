@@ -16,7 +16,7 @@ jobs:
       run: |
         date >> log.txt  # Appends the current date to log.txt
         git config --global user.name "Nagendra-Chowdary"
-        git config --global user.email "chowdary006@gmail.com"
+        git config --global user.email "chowdarynagendra006@gmail.com"
         git add log.txt
         git commit -m "Automated commit"
         git push https://${{ secrets.GH_PAT }}@github.com/Nagendra-Chowdary/Streak.git main
