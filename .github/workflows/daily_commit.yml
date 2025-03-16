@@ -2,7 +2,7 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '30 19 * * *'  # Runs daily at midnight UTC
+    - cron: '05 11 * * *'  # Runs daily at midnight UTC
 
 jobs:
   commit:
@@ -19,4 +19,7 @@ jobs:
         git config --global user.email "chowdarynagendra006@gmail.com"
         git add log.txt
         git commit -m "Automated commit"
-        git push https://${{ secrets.GH_PAT }}@github.com/Nagendra-Chowdary/Streak.git main
+        git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Nagendra-Chowdary/Streak.git
+
+        git push origin main
+        
